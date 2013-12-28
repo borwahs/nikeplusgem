@@ -1,0 +1,39 @@
+## sourced from https://github.com/github/gitignore/blob/master/Ruby.gitignore
+
+## Ignore since this will be a gem
+Gemfile.lock
+
+## Common Ruby Files
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+## Environment normalisation:
+/.bundle/
+/lib/bundler/man/
+
+## Mac OS X files
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
