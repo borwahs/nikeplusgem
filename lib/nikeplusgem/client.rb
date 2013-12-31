@@ -4,6 +4,9 @@ module NikePlusGem
     BASE_URL = "https://api.nike.com".freeze
     ENDPOINT = "/me/sport/activities".freeze
 
+    attr_reader :access_token
+    attr_reader :app_id
+
     def initialize(access_token, app_id)
       @access_token = access_token
       @app_id = app_id

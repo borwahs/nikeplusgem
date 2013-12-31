@@ -1,4 +1,6 @@
 require 'rake'
+require 'rake/clean'
+require 'rake/testtask'
 
 # values to reuse
 NAME = 'nikeplusgem'
@@ -30,4 +32,11 @@ end
 desc "Print current version"
 task :version do
   puts VERSION.call
+end
+
+desc "Run tests"
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'test'
+  t.test_files = FileList['test/*_test.rb']
+  t.verbose = true
 end
