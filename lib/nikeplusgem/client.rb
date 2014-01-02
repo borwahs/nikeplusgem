@@ -30,7 +30,6 @@ module NikePlusGem
       param_str = ""
 
       query_string_params["access_token"] = @access_token
-
       if not query_string_params.empty?
         param_str = parameterize(query_string_params)
       end
