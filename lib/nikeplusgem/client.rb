@@ -2,7 +2,6 @@ module NikePlusGem
   class Client
 
     BASE_URL = "https://api.nike.com".freeze
-    ENDPOINT = "/me/sport/activities".freeze
 
     attr_reader :access_token
     attr_reader :app_id
@@ -40,12 +39,13 @@ module NikePlusGem
       end
     end
 
-    def get(headers={})
-      uri = generate_uri(ENDPOINT)
+    def get(endpoint, qs_options={}, headers={})
+      uri = generate_uri(endpoint, qs_options)
 
       headers = build_headers(headers)
 
       req = Net::HTTP::Get.new(uri, headers)
+      puts uri
 
       res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
         http.request(req)
