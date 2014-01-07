@@ -60,4 +60,20 @@ class NikePlusGemTest < Test::Unit::TestCase
     assert uri.to_s.include?("access_token=12345"), "Generate URI must include the Access Token QS param"
     assert uri.to_s.include?("count=5"), "Generate URI must include the Count QS param"
   end
+
+  def test_hash_extension_only_method
+    include_params = ["param1", "param3", "Param5", "PaRam6"]
+    test_params = { "param1" => 1, "param2" => 2, "param3" => 3, "param4" => 4, "param5" => 5, "PaRam6" => 6}
+
+    final_params = test_params.only(include_params)
+
+    assert final_params.has_key? "param1"
+    assert final_params.has_key? "param3"
+    assert final_params.has_key? "PaRam6"
+
+    refute final_params.has_key? "param2"
+    refute final_params.has_key? "param4"
+    refute final_params.has_key? "param5"
+  end
+
 end
