@@ -76,4 +76,30 @@ class NikePlusGemTest < Test::Unit::TestCase
     refute final_params.has_key? "param5"
   end
 
+  def test_helpers_format_date
+    date_value = "2013/06/21"
+    date = NikePlusGem::Helpers.format_date(date_value)
+
+    assert date.is_a?(String), "Format Date did not return a String object."
+    assert date.eql?("2013/06/21"), "Format Date did not set Date correctly."
+
+    date_value = "yyyy/mm/dd"
+    date = NikePlusGem::Helpers.format_date(date_value)
+
+    assert date.is_a?(String), "Format Date should return a String object"
+    assert date.eql?("ERROR"), "Format Date should return ERROR when the date is invalid."
+
+    date_value = Date.new(2013,6,21)
+    date = NikePlusGem::Helpers.format_date(date_value)
+
+    assert date.is_a?(String), "Format Date should return a String object"
+    assert date.eql?("2013/06/21"), "Format Date did not set Date correctly."
+
+    date_value = "2013/06/21 12:12:12 PM"
+    date = NikePlusGem::Helpers.format_date(date_value)
+
+    assert date.is_a?(String), "Format Date did not return a String object."
+    assert date.eql?("2013/06/21"), "Format Date did not set Date correctly."
+  end
+
 end
