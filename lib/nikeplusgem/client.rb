@@ -45,8 +45,6 @@ module NikePlusGem
       headers = build_headers(headers)
 
       req = Net::HTTP::Get.new(uri, headers)
-      puts uri
-
       res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
         http.request(req)
       end
