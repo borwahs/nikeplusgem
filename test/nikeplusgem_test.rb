@@ -41,24 +41,16 @@ class NikePlusGemTest < Test::Unit::TestCase
     assert_equal headers["appid"], "zyxwv", "App ID should be replaced when calling build_headers."
   end
 
-  def test_parameterize
-    parameters = @client.parameterize({})
-    assert_equal parameters, "", "Trying to parameterize no key/values should return an empty string."
+  def test_create_qs_params_hash_method
+    include_params = ["access_token"]
 
-    parameters = @client.parameterize({"key1" => "value1"})
-    assert_equal parameters, "key1=value1", "Did not build Query String parameters for one key/value."
+    query_string_params = @client.create_qs_params_hash({"test" => "one"})
+    assert query_string_params.has_key?("access_token")
+    assert query_string_params.has_key?("test")
 
-    parameters = @client.parameterize({"key1" => "value1", "key2" => "value2"})
-    assert_equal parameters, "key1=value1&key2=value2", "Did not build Query String parameters for two key values."
-  end
-
-  def test_generate_uri
-    uri = @client.generate_uri("endpoint")
-    assert uri.to_s.include?("access_token=12345"), "Generate URI must include the Access Token QS param"
-
-    uri = @client.generate_uri("endpoint", {"count" => 5})
-    assert uri.to_s.include?("access_token=12345"), "Generate URI must include the Access Token QS param"
-    assert uri.to_s.include?("count=5"), "Generate URI must include the Count QS param"
+    query_string_params = @client.create_qs_params_hash()
+    assert query_string_params.has_key?("access_token")
+    refute query_string_params.has_key?("test")
   end
 
   def test_hash_extension_only_method

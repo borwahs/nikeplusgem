@@ -1,7 +1,8 @@
 require 'json'
 require 'date'
 require 'time'
-require 'net/http'
+require 'uri'
+require 'httparty'
 
 require_relative 'nikeplusgem/client'
 require_relative 'nikeplusgem/version'

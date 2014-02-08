@@ -1,7 +1,8 @@
 module NikePlusGem
   class Client
+    include HTTParty
 
-    BASE_URL = "https://api.nike.com".freeze
+    BASE_URL = "https://api.nike.com"
 
     attr_reader :access_token
     attr_reader :app_id
@@ -21,35 +22,26 @@ module NikePlusGem
 	    req_headers
     end
 
-    def parameterize(params)
-      URI.escape(params.collect{|k,v| "#{k}=#{v}"}.join('&'))
+    def create_qs_params_hash(params={})
+      params.merge!({"access_token" => @access_token})
     end
 
-    def generate_uri(endpoint, query_string_params={})
-      param_str = ""
-
-      query_string_params["access_token"] = @access_token
-      if not query_string_params.empty?
-        param_str = parameterize(query_string_params)
-      end
-
-      url = URI.join(BASE_URL, endpoint)
-      if not param_str.empty?
-        url = URI.join(url, "?" << param_str)
-      end
+    def combine_url_endpoint(base, endpoint)
+      URI.join(base, endpoint)
     end
 
     def get(endpoint, qs_options={}, headers={})
-      uri = generate_uri(endpoint, qs_options)
-
+      query_string_params = create_qs_params_hash(qs_options)
       headers = build_headers(headers)
 
-      req = Net::HTTP::Get.new(uri, headers)
-      res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-        http.request(req)
-      end
+      options = {}
+      options[:headers] = headers
+      options[:query] = query_string_params
 
-      res.body
+      url = combine_url_endpoint(BASE_URL, endpoint)
+
+      res = self.class.get(url.to_s, options)
+      res.parsed_response
     end
 
   end
