@@ -1,4 +1,4 @@
 source "http://rubygems.org"
 
-require 'httparty'
-require 'rake'
+gem 'httparty'
+gem 'rake'
