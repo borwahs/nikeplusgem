@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.nike.com/me/sport?access_token=<ACCESS_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Appid:
+      - fuelband
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sun, 02 Mar 2014 07:45:20 GMT
+      Server:
+      - Apache
+      X-Swooshlet:
+      - app-msp-api-0 prd sin-87-app-msp-api-0
+      Content-Length:
+      - '643'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"experienceTypes":["FUELBAND"],"summaries":[{"experienceType":"ALL","records":[{"recordType":"LIFETIMEFUEL","recordValue":"424189"}]},{"experienceType":"FUELBAND","records":[{"recordType":"LIFETIMEFUEL","recordValue":"424189"},{"recordType":"DAILYGOALTARGETVALUE","recordValue":"2250.0"},{"recordType":"CURRENTSTREAK","recordValue":"1"},{"recordType":"TOTALDAILYGOALSACHIEVED","recordValue":"127"},{"recordType":"LIFETIMEAVERAGEFUELDAY","recordValue":"2790"},{"recordType":"LIFETIMEAVERAGEFUELWEEK","recordValue":"19281"},{"recordType":"LIFETIMEAVERAGEFUELMONTH","recordValue":"70698"},{"recordType":"NUMOFACTIVITIES","recordValue":"152"}]}]}'
+    http_version:
+  recorded_at: Sun, 02 Mar 2014 07:45:37 GMT
+recorded_with: VCR 2.8.0

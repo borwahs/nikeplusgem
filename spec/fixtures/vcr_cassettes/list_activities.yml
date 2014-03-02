@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.nike.com/me/sport/activities?access_token=<ACCESS_TOKEN>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Appid:
+      - abcdef
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Fri, 14 Feb 2014 03:20:22 GMT
+      Server:
+      - Apache
+      X-Swooshlet:
+      - app-msp-api-0 prd sin-163-app-msp-api-0
+      Content-Length:
+      - '1838'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"activityId":"2bd0fec0-3955-450b-92dd-29426a19d2f5","activityType":"ALL_DAY","startTime":"2014-02-09T05:00:00Z","activityTimeZone":"America/Indiana/Indianapolis","status":"IN_PROGRESS","deviceType":"FUELBAND","metricSummary":{"calories":678,"fuel":2369,"distance":6.01494836807251,"steps":7639,"duration":"5:40:00.000"},"tags":[],"metrics":[]},{"activityId":"eb68365c-819e-4638-ad7b-57ff23f034ad","activityType":"ALL_DAY","startTime":"2014-02-08T05:00:00Z","activityTimeZone":"America/Indiana/Indianapolis","status":"IN_PROGRESS","deviceType":"FUELBAND","metricSummary":{"calories":527,"fuel":1839,"distance":2.8440887928009033,"steps":3612,"duration":"7:51:00.000"},"tags":[],"metrics":[]},{"activityId":"047eb85a-f60f-4c13-b6a9-392c3ef9ec98","activityType":"ALL_DAY","startTime":"2014-02-07T05:00:00Z","activityTimeZone":"America/Indiana/Indianapolis","status":"IN_PROGRESS","deviceType":"FUELBAND","metricSummary":{"calories":896,"fuel":3134,"distance":6.509435653686523,"steps":8267,"duration":"10:43:00.000"},"tags":[],"metrics":[]},{"activityId":"5bce184b-7ec4-4bd2-9681-79e40803093f","activityType":"ALL_DAY","startTime":"2014-02-06T05:00:00Z","activityTimeZone":"America/Indiana/Indianapolis","status":"IN_PROGRESS","deviceType":"FUELBAND","metricSummary":{"calories":358,"fuel":1249,"distance":1.348816156387329,"steps":1713,"duration":"7:12:00.000"},"tags":[],"metrics":[]},{"activityId":"f334bdf7-1e21-48e1-8c7c-ad38d122b294","activityType":"ALL_DAY","startTime":"2014-02-05T05:00:00Z","activityTimeZone":"America/Indiana/Indianapolis","status":"IN_PROGRESS","deviceType":"FUELBAND","metricSummary":{"calories":622,"fuel":2171,"distance":3.0338521003723145,"steps":3853,"duration":"9:50:00.000"},"tags":[],"metrics":[]}],"paging":{"next":"/me/sport/activities?access_token=<ACCESS_TOKEN>&offset=6"}}'
+    http_version:
+  recorded_at: Fri, 14 Feb 2014 03:20:23 GMT
+recorded_with: VCR 2.8.0
