@@ -1,6 +1,7 @@
 require 'rake'
 require 'rake/clean'
 require 'rspec/core/rake_task'
+require 'yard'
 
 # values to reuse
 NAME = 'nikeplusgem'
@@ -39,3 +40,8 @@ desc "run rspec tests"
 RSpec::Core::RakeTask.new(:spec)
 
 task :test => :spec
+
+desc "Create documentation"
+YARD::Rake::YardocTask.new do |t|
+  t.files   = ['lib/**/*.rb']
+end

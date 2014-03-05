@@ -3,6 +3,13 @@ module NikePlusGem
 
     ACTIVITY_DATA = ["activityID"]
 
+    # Get details of one of the user's activities, by Activity ID
+    #
+    # @param params [Hash] Query Parameters to include in call
+    #
+    # @option params [String] activityID The Activity ID. REQUIRED
+    #
+    # @return [Hash] A hash with the requested Activity
     def activity_data(params={})
       params = params.only(ACTIVITY_DATA)
 

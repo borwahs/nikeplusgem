@@ -6,3 +6,5 @@ gem 'rspec'
 
 gem 'vcr'
 gem 'webmock', '>= 1.8.0', '< 1.16'
+
+gem 'yard'
