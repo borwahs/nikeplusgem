@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Appid:
-      - abcdef
+      - <APP_ID>
       Accept:
       - application/json
   response:

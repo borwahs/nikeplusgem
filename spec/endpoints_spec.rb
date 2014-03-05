@@ -4,7 +4,7 @@ describe NikePlusGem::Client do
 
   before :each do
     @access_token = "12345"
-    @app_id = "abcdef"
+    @app_id = "abcde"
 
     @client = NikePlusGem::Client.new(@access_token, @app_id)
   end
