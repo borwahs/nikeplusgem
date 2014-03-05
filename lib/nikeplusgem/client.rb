@@ -31,12 +31,9 @@ module NikePlusGem
     end
 
     def get(endpoint, qs_options={}, headers={})
-      query_string_params = create_qs_params_hash(qs_options)
-      headers = build_headers(headers)
-
       options = {}
-      options[:headers] = headers
-      options[:query] = query_string_params
+      options[:headers] = build_headers(headers)
+      options[:query] = create_qs_params_hash(qs_options)
 
       url = combine_url_endpoint(BASE_URL, endpoint)
 

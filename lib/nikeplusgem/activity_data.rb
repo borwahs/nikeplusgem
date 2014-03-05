@@ -8,7 +8,7 @@ module NikePlusGem
 
       activity_id = params["activityId"]
 
-      get("/me/sport/activities/" << activity_id, params)
+      get("/me/sport/activities/" << activity_id)
     end
 
   end
