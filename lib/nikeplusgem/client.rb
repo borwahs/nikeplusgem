@@ -64,23 +64,18 @@ module NikePlusGem
       URI.join(base, endpoint)
     end
 
-    # Helper method to call into the Nike+ API
-    #
-    # @param endpoint [String] The endpoint to hit in the Nike+ API
-    # @param qs_options [Hash] The query string parameters to append to the URL
-    # @param headers [Hash] THe headers to include in the get request
-    #
-    # @return [Hash] The parsed JSON response as a Hash
-    def get(endpoint, qs_options={}, headers={})
-      options = {}
-      options[:headers] = build_headers(headers)
-      options[:query] = create_qs_params_hash(qs_options)
+    private
 
-      url = combine_url_endpoint(BASE_URL, endpoint)
+      def get(endpoint, qs_options={}, headers={})
+        options = {}
+        options[:headers] = build_headers(headers)
+        options[:query] = create_qs_params_hash(qs_options)
 
-      res = self.class.get(url.to_s, options)
-      res.parsed_response
-    end
+        url = combine_url_endpoint(BASE_URL, endpoint)
+
+        res = self.class.get(url.to_s, options)
+        res.parsed_response
+      end
 
   end
 end
