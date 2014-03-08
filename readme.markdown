@@ -2,6 +2,29 @@
 
 This gem provides access to the [Nike+ Developer Resources](http://developer.nike.com) data through their REST API.
 
+## Documentation
+
+Good method documentation is available at [rubydoc.info](http://www.rubydoc.info/github/borwahs/nikeplusgem/frames).
+
+The API methods are exposed in the Client class:
+
+* Aggregate Sports Data
+* List Activities
+* Activities By Experience Type
+* Activity Details
+
+At the moment, the only way to connect is to get a specific Access Token for an account from [Nike+ Developer API Portal](https://developer.nike.com).
+
+##Usage
+
+Require the gem:
+
+    require 'nikeplusgem'
+
+Setup a new Client object with an Access Token and Application ID:
+
+    client = NikePlusGem::Client.new("access_token", "app_id")
+
 # Disclaimer
 
 This is MIT licensed with no added caveats. See LICENSE file for more details.
