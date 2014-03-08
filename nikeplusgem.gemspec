@@ -13,4 +13,12 @@ Gem::Specification.new do |g|
 
   g.files         = Dir["./**/*"].reject{|file| file =~ /\.\/(doc|pkg|spec|test)/}
   g.require_paths << "lib"
+
+  # Dependencies
+  g.add_development_dependency "rspec"
+  g.add_development_dependency "rake"
+  g.add_development_dependency "vcr"
+  g.add_development_dependency "yard"
+  g.add_development_dependency "webmock", ">= 1.8.0", "< 1.16.0"
+  g.add_runtime_dependency "httparty"
 end
