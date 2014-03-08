@@ -83,31 +83,11 @@ describe NikePlusGem::Client do
 
     before do
       VCR.insert_cassette 'activity_data'
+      @activity_id = "2bd0fec0-3955-450b-92dd-29426a19d2f5"
     end
 
-    before(:each) do
-      @params = {}
-      @params["activityID"] = "2bd0fec0-3955-450b-92dd-29426a19d2f5"
-    end
-
-    it "return json request for activity data" do
-      @client.activity_data(@params).should be_instance_of Hash
-    end
-
-    it 'raises an exception if the activity id key is missing' do
-      @params.delete("activityID")
-
-      expect {
-        @client.activity_data(@params)
-      }.to raise_error(ArgumentError)
-    end
-
-    it 'raises an exception if the activity id value is empty' do
-      @params["activityID"] = ""
-
-      expect {
-        @client.activity_data(@params)
-      }.to raise_error(ArgumentError)
+    it "return json request for activity data with string parameter" do
+      @client.activity_data(@activity_id).should be_instance_of Hash
     end
 
     after do
