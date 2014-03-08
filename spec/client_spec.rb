@@ -13,6 +13,26 @@ describe NikePlusGem::Client do
     it "takes two parameters and returns a Client object" do
       @client.should be_an_instance_of NikePlusGem::Client
     end
+
+    it "requires the access_token to be non-empty and not nil" do
+      expect {
+        client = NikePlusGem::Client.new("", @app_id)
+      }.to raise_error(NikePlusGem::InvalidArgumentError)
+
+      expect {
+        client = NikePlusGem::Client.new(nil, @app_id)
+      }.to raise_error(NikePlusGem::InvalidArgumentError)
+    end
+
+    it "requires the app_id to be non-empty and not nil" do
+      expect {
+        client = NikePlusGem::Client.new(@access_token, "")
+      }.to raise_error(NikePlusGem::InvalidArgumentError)
+
+      expect {
+        client = NikePlusGem::Client.new(@access_token, nil)
+      }.to raise_error(NikePlusGem::InvalidArgumentError)
+    end
   end
 
   describe "#access_token" do

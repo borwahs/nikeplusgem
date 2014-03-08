@@ -26,6 +26,15 @@ module NikePlusGem
     #
     # @return [Client] A NikePlusGem::Client object
     def initialize(access_token, app_id)
+
+      if access_token.nil? or access_token.empty?
+        raise InvalidArgumentError, "The Access Token must be set"
+      end
+
+      if app_id.nil? or app_id.empty?
+        raise InvalidArgumentError, "The App ID must be set"
+      end
+
       @access_token = access_token
       @app_id = app_id
     end

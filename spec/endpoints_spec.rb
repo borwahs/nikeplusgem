@@ -61,7 +61,7 @@ describe NikePlusGem::Client do
 
       expect {
         @client.experience_type(@params)
-      }.to raise_error(ArgumentError)
+      }.to raise_error(NikePlusGem::InvalidArgumentError)
     end
 
     it 'raises an exception if the experience type value is not valid' do
@@ -69,7 +69,7 @@ describe NikePlusGem::Client do
 
       expect {
         @client.experience_type(@params)
-      }.to raise_error(ArgumentError)
+      }.to raise_error(NikePlusGem::InvalidArgumentError)
     end
 
 

@@ -12,6 +12,7 @@ require_relative 'nikeplusgem/experience_type'
 require_relative 'nikeplusgem/activity_data'
 require_relative 'nikeplusgem/extensions'
 require_relative 'nikeplusgem/helpers'
+require_relative 'nikeplusgem/errors'
 
 # Read data from Nike+ Developer API
 #
