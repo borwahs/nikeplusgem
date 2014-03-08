@@ -47,32 +47,4 @@ describe NikePlusGem::Client do
     end
   end
 
-  describe "#build_headers" do
-    it 'should include the App ID key in the header hash' do
-      headers = @client.build_headers({"test" => "value", "test2" => "value2"})
-      headers.should have_key("appid")
-    end
-
-    it 'should include the Accept key in the header hash' do
-      headers = @client.build_headers({"test" => "value", "test2" => "value2"})
-      headers.should have_key("Accept")
-    end
-
-    it 'should include the two keys passed in' do
-      headers = @client.build_headers({"test" => "value", "test2" => "value2"})
-      headers.should have_key("test")
-      headers.should have_key("test2")
-    end
-  end
-
-  describe "#create_qs_params_hash" do
-    it 'should include the Access Token key in the hash' do
-      include_params = ["access_token"]
-
-      query_string_params = @client.create_qs_params_hash({"test" => "one"})
-      query_string_params.should have_key("access_token")
-      query_string_params.should have_key("test")
-    end
-  end
-
 end

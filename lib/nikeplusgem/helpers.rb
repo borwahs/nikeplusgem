@@ -34,5 +34,41 @@ module NikePlusGem
       "ERROR"
     end
 
+    # Merges user defined headers with the required headers needed by API
+    #
+    # @param app_id [String] The Application ID
+    # @param headers [Hash] Additional headers defined by user
+    #
+    # @return [Hash] Merge of user Headers and required headers by API
+    def self.merge_required_headers(app_id, headers={})
+      req_headers = {"appid" => app_id, "Accept" => "application/json"}
+
+      if not headers.empty?
+        req_headers.merge!(headers)
+      end
+
+      req_headers
+    end
+
+    # Merges query parameter key/value with the required Access Token parameter
+    #
+    # @param access_token [String] The Access Token to communicate with the API
+    # @param params [Hash] Additional Query String Parameters
+    #
+    # @return [Hash] Passed in query string parameter hash with Access Token key/value
+    def self.merge_required_qs_params(access_token, params={})
+      params.merge!({"access_token" => access_token})
+    end
+
+    # Joins two strings into a URI object
+    #
+    # @param base [String] The base portion of the URL
+    # @param endpoint [String] The endpoint to append to the base URL
+    #
+    # @return [URI] Joined URL of base and endpoint
+    def self.combine_url_endpoint(base, endpoint)
+      URI.join(base, endpoint)
+    end
+
   end
 end

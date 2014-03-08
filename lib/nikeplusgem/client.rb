@@ -39,48 +39,14 @@ module NikePlusGem
       @app_id = app_id
     end
 
-    # Merges user defined headers with the required headers needed by API
-    #
-    # @param headers [Hash] Additional headers defined by user
-    #
-    # @return [Hash] Merge of user Headers and required headers by API
-    def build_headers(headers={})
-      req_headers = {'appid' => @app_id, 'Accept' =>'application/json'}
-
-      if not headers.empty?
-	      req_headers.merge!(headers)
-	    end
-
-	    req_headers
-    end
-
-    # Merges query parameter key/value with the required Access Token parameter
-    #
-    # @param params [Hash] Additional Query String Parameters
-    #
-    # @return [Hash] Passed in query string parameter hash with Access Token key/value
-    def create_qs_params_hash(params={})
-      params.merge!({"access_token" => @access_token})
-    end
-
-    # Joins two strings into a URI object
-    #
-    # @param base [String] The base portion of the URL
-    # @param endpoint [String] The endpoint to append to the base URL
-    #
-    # @return [URI] Joined URL of base and endpoint
-    def combine_url_endpoint(base, endpoint)
-      URI.join(base, endpoint)
-    end
-
     private
 
       def get(endpoint, qs_options={}, headers={})
         options = {}
-        options[:headers] = build_headers(headers)
-        options[:query] = create_qs_params_hash(qs_options)
+        options[:headers] = Helpers.merge_required_headers(@app_id, headers)
+        options[:query] = Helpers.merge_required_qs_params(@access_token, qs_options)
 
-        url = combine_url_endpoint(BASE_URL, endpoint)
+        url = Helpers.combine_url_endpoint(BASE_URL, endpoint)
 
         res = self.class.get(url.to_s, options)
         res.parsed_response
