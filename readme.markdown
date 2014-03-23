@@ -15,7 +15,13 @@ The API methods are exposed in the Client class:
 
 At the moment, the only way to connect is to get a specific Access Token for an account from [Nike+ Developer API Portal](https://developer.nike.com).
 
-##Usage
+## API Version
+
+The API exposed by Nike to retrieve data is not currently versioned. Use the date located below to determine how this gem compares to the API. 
+
+Date Last Tested: March 22nd, 2014
+
+## Usage
 
 Require the gem:
 
