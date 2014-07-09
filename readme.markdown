@@ -1,6 +1,8 @@
 # Nike Plus Gem
 
 This gem provides access to the [Nike+ Developer Resources](http://developer.nike.com) data through their REST API.
+ 
+_NOTE: This is currently out of date with the latest updates to the Nike+ API. They recently changed it with better documentation and OAUTH support. The gem will be updated soon._
 
 ## Documentation
 
@@ -13,7 +15,7 @@ The API methods are exposed in the Client class:
 * Activities By Experience Type
 * Activity Details
 
-At the moment, the only way to connect is to get a specific Access Token for an account from [Nike+ Developer API Portal](https://developer.nike.com).
+At the moment, the only way to connect is to get a specific Access Token for an account from [Nike+ Developer API Portal](https://developer.nike.com/content/nike-developer-cq/us/en_us/index/documentation/api-docs.html).
 
 ## API Version
 
